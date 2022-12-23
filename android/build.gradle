@@ -4,10 +4,14 @@ import org.apache.tools.ant.taskdefs.condition.Os
 
 buildscript {
     ext {
+        googlePlayServicesVersion = "+"
+        firebaseMessagingVersion = "21.1.0"
+
         buildToolsVersion = "31.0.0"
         minSdkVersion = 21
         compileSdkVersion = 31
         targetSdkVersion = 31
+        androidXCore = "1.7.0"
 
         if (System.properties['os.arch'] == "aarch64") {
             // For M1 Users we need to use the NDK 24 which added support for aarch64
@@ -29,6 +33,8 @@ buildscript {
         classpath("com.android.tools.build:gradle:7.0.4")
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("de.undercouch:gradle-download-task:4.1.2")
+        classpath 'com.google.gms:google-services:4.3.10'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.0'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -52,6 +58,13 @@ allprojects {
             }
         }
         google()
+        jcenter()
         maven { url 'https://www.jitpack.io' }
     }
+    configurations.all {
+        resolutionStrategy {
+            force 'com.facebook.react:react-native:0.68.1' //select Version you used
+        }
+    }
 }
+

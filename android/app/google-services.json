@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "542529764222",
+    "project_id": "free-online-radio---all-in-one",
+    "storage_bucket": "free-online-radio---all-in-one.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542529764222:android:332be3f22eb9646aa9d12f",
+        "android_client_info": {
+          "package_name": "com.merryblue.freeradio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "542529764222-kcnvbpp6tl81c1a2dtgp6tqbdsnjgkgi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNW_kC-qAXqnja9KX3IFIQ4AMqQOyuijo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "542529764222-kcnvbpp6tl81c1a2dtgp6tqbdsnjgkgi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

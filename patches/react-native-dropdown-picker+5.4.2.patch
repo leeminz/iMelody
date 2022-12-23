@@ -1,0 +1,81 @@
+diff --git a/node_modules/react-native-dropdown-picker/src/components/Picker.js b/node_modules/react-native-dropdown-picker/src/components/Picker.js
+index 9bbacc7..d608471 100644
+--- a/node_modules/react-native-dropdown-picker/src/components/Picker.js
++++ b/node_modules/react-native-dropdown-picker/src/components/Picker.js
+@@ -47,6 +47,7 @@ import THEMES from '../themes';
+ import RenderBadgeItem from './RenderBadgeItem';
+ import RenderListItem from './RenderListItem';
+ import ListEmpty from './ListEmpty';
++import {IconSearch} from '../../../../src/assets/svg/header';
+ 
+ function Picker({
+     value = null,
+@@ -644,7 +645,7 @@ function Picker({
+             );
+             const size = y + maxHeight + pickerHeight + bottomOffset;
+ 
+-            const direction = size < WINDOW_HEIGHT ? 'top' : 'bottom';
++            const direction = 'bottom';
+ 
+             onDirectionChanged(direction);
+             setDirection(direction);
+@@ -684,11 +685,11 @@ function Picker({
+ 
+         if (disableBorderRadius && open) {
+             return direction === 'top' ? {
+-                borderBottomLeftRadius: 0,
+-                borderBottomRightRadius: 0,
++                borderBottomLeftRadius: 10,
++                borderBottomRightRadius: 10,
+             } : {
+-                borderTopLeftRadius: 0,
+-                borderTopRightRadius: 0,
++                borderTopLeftRadius: 10,
++                borderTopRightRadius: 10,
+             };
+         }
+ 
+@@ -705,11 +706,11 @@ function Picker({
+ 
+         if (disableBorderRadius && open) {
+             return direction === 'top' ? {
+-                borderTopLeftRadius: 0,
+-                borderTopRightRadius: 0,
++                borderTopLeftRadius: 10,
++                borderTopRightRadius: 10,
+             } : {
+-                borderBottomLeftRadius: 0,
+-                borderBottomRightRadius: 0,
++                borderBottomLeftRadius: 10,
++                borderBottomRightRadius: 10,
+             };
+         }
+      }, [disableBorderRadius, open, direction, listMode]);
+@@ -1595,14 +1596,19 @@ function Picker({
+         <View style={_searchContainerStyle}>
+             {
+                 searchable ? (
+-                    <TextInput
+-                        value={searchText}
+-                        onChangeText={_onChangeSearchText}
+-                        style={_searchTextInputStyle}
+-                        placeholder={_searchPlaceholder}
+-                        placeholderTextColor={searchPlaceholderTextColor}
+-                        {...searchTextInputProps}
+-                    />
++                    <View style={{ flexDirection: "row", alignItems: "center" }}>
++                        <View style={{ marginRight: 10 }}>
++                            <IconSearch />
++                        </View>
++                        <TextInput
++                            value={searchText}
++                            onChangeText={_onChangeSearchText}
++                            style={_searchTextInputStyle}
++                            placeholder={_searchPlaceholder}
++                            placeholderTextColor={searchPlaceholderTextColor}
++                            {...searchTextInputProps}
++                        />
++                    </View>
+                 ) : listMode === LIST_MODE.MODAL && (
+                     <View style={styles.flex}>
+                         <Text style={_modalTitleStyle}>
